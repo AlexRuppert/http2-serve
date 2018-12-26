@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "sourceMap": false,
+    "moduleResolution": "node"
+  },
+  "exclude": ["**/node_modules/*"],
+  "compileOnSave": true,
+  "types": ["node"],
+  "experimentalDecorators": true
+}

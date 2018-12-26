@@ -1,0 +1,294 @@
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.ts");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/defaults.ts":
+/*!*************************!*\
+  !*** ./src/defaults.ts ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_0__);\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n    port: 8080,\r\n    key: fs__WEBPACK_IMPORTED_MODULE_0___default.a.readFileSync('cert/localhost.key'),\r\n    cert: fs__WEBPACK_IMPORTED_MODULE_0___default.a.readFileSync('cert/localhost.cert'),\r\n    allowHTTP1: true,\r\n});\r\n\n\n//# sourceURL=webpack:///./src/defaults.ts?");
+
+/***/ }),
+
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./server */ \"./src/server.ts\");\n\r\n//start server with configured port or default\r\nlet main;\r\n(async () => {\r\n    main = new _server__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n})();\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+
+/***/ }),
+
+/***/ "./src/middlewares.ts":
+/*!****************************!*\
+  !*** ./src/middlewares.ts ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _koa_cors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @koa/cors */ \"@koa/cors\");\n/* harmony import */ var _koa_cors__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_koa_cors__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var kompression__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! kompression */ \"kompression\");\n/* harmony import */ var kompression__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(kompression__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var koa_conditional_get__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! koa-conditional-get */ \"koa-conditional-get\");\n/* harmony import */ var koa_conditional_get__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(koa_conditional_get__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var koa_etag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! koa-etag */ \"koa-etag\");\n/* harmony import */ var koa_etag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(koa_etag__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var koa_morgan__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! koa-morgan */ \"koa-morgan\");\n/* harmony import */ var koa_morgan__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(koa_morgan__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var koa_static_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! koa-static-server */ \"koa-static-server\");\n/* harmony import */ var koa_static_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(koa_static_server__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _middlewares_ignore_favicon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./middlewares/ignore-favicon */ \"./src/middlewares/ignore-favicon.ts\");\n/* harmony import */ var _middlewares_indexer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./middlewares/indexer */ \"./src/middlewares/indexer.ts\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ([\r\n    Object(_middlewares_ignore_favicon__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(),\r\n    koa_morgan__WEBPACK_IMPORTED_MODULE_4___default()('dev'),\r\n    _koa_cors__WEBPACK_IMPORTED_MODULE_0___default()(),\r\n    kompression__WEBPACK_IMPORTED_MODULE_1___default()({\r\n        threshold: 256,\r\n    }),\r\n    Object(_middlewares_indexer__WEBPACK_IMPORTED_MODULE_7__[\"default\"])({ rootDir: 'C:/Coding' }),\r\n    koa_conditional_get__WEBPACK_IMPORTED_MODULE_2___default()(),\r\n    koa_etag__WEBPACK_IMPORTED_MODULE_3___default()(),\r\n    koa_static_server__WEBPACK_IMPORTED_MODULE_5___default()({ rootDir: 'C:/Coding' }),\r\n]);\r\n\n\n//# sourceURL=webpack:///./src/middlewares.ts?");
+
+/***/ }),
+
+/***/ "./src/middlewares/ignore-favicon.ts":
+/*!*******************************************!*\
+  !*** ./src/middlewares/ignore-favicon.ts ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ignoreFavicon; });\nfunction ignoreFavicon(options = {}) {\r\n    return async function (ctx, next) {\r\n        if (/\\/favicon\\.?/i.test(ctx.url)) {\r\n            ctx.status = 404;\r\n        }\r\n        else {\r\n            await next();\r\n        }\r\n    };\r\n}\r\n\n\n//# sourceURL=webpack:///./src/middlewares/ignore-favicon.ts?");
+
+/***/ }),
+
+/***/ "./src/middlewares/indexer.ts":
+/*!************************************!*\
+  !*** ./src/middlewares/indexer.ts ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return indexer; });\n/* harmony import */ var pug__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pug */ \"pug\");\n/* harmony import */ var pug__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(pug__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\nconst fn = pug__WEBPACK_IMPORTED_MODULE_0___default.a.compileFile(__dirname + '/../pug/index.pug');\r\nconst formatDate = function (date) {\r\n    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();\r\n};\r\nconst formatSize = function (num) {\r\n    const table = ['B', 'k', 'M', 'G', 'T'];\r\n    const pows = [1, 1024, 1024 * 1024, 1024 * 1024 * 1024, 1024 * 1024 * 1024 * 1024];\r\n    for (let i = 0; i < table.length; i++) {\r\n        const result = num / pows[i];\r\n        if (result < 1024) {\r\n            return result.toFixed(1) + table[i];\r\n        }\r\n    }\r\n    return 'Huge';\r\n};\r\nconst getHashCode = function (str) {\r\n    let hash = 0;\r\n    if (str.length === 0)\r\n        return hash;\r\n    for (let i = 0; i < str.length; i++) {\r\n        hash = str.charCodeAt(i) + ((hash << 5) - hash);\r\n        hash = hash & hash; // Convert to 32bit integer\r\n    }\r\n    return hash;\r\n};\r\nconst numberToHSL = function (num) {\r\n    return num % 360; //`hsl(${num % 360}, 100%, 30%)`\r\n};\r\nconst formatColor = function (name, isDirectory) {\r\n    return !isDirectory ? numberToHSL(getHashCode(path__WEBPACK_IMPORTED_MODULE_2___default.a.extname(name))) : null;\r\n};\r\nasync function getDirectoryContents(directory, url) {\r\n    const currentPath = path__WEBPACK_IMPORTED_MODULE_2___default.a.join(directory, decodeURI(url));\r\n    const dir = await fs__WEBPACK_IMPORTED_MODULE_1__[\"promises\"].readdir(currentPath);\r\n    const statsPromises = dir.map(d => fs__WEBPACK_IMPORTED_MODULE_1__[\"promises\"].stat(path__WEBPACK_IMPORTED_MODULE_2___default.a.join(currentPath, d)));\r\n    const stats = (await Promise.all(statsPromises.map(p => p.catch(() => undefined)))).filter(p => p);\r\n    const result = dir.map((d, i) => {\r\n        const stat = stats[i];\r\n        const isDir = stat.isDirectory();\r\n        const suffix = isDir ? '/' : '';\r\n        return {\r\n            name: d,\r\n            //uri: url + encodeURI(d) + suffix,\r\n            isDir,\r\n            size: formatSize(stat.size),\r\n            modified: formatDate(stat.mtime),\r\n            hue: formatColor(d, isDir),\r\n        };\r\n    });\r\n    let uriParts = url.split('/').filter(u => u);\r\n    let uriSets = uriParts\r\n        .reduce((acc, val, i) => {\r\n        acc.push(acc[i] + val + '/');\r\n        return acc;\r\n    }, ['/'])\r\n        .slice(1);\r\n    let current = uriParts.map((d, i) => {\r\n        return {\r\n            part: decodeURI(d),\r\n            href: uriSets[i],\r\n        };\r\n    });\r\n    return {\r\n        url,\r\n        files: result.sort((a, b) => {\r\n            return a.isDir === b.isDir ? 0 : a.isDir ? -1 : 1 || false;\r\n        }),\r\n    };\r\n}\r\nfunction indexer(options = { rootDir: __dirname }) {\r\n    return async function (ctx, next) {\r\n        if (/\\/$/i.test(ctx.url)) {\r\n            const directoryContents = await getDirectoryContents(options.rootDir, ctx.url);\r\n            if (ctx.accepts('html')) {\r\n                ctx.body = /*fn(directoryContents)*/ pug__WEBPACK_IMPORTED_MODULE_0___default.a.renderFile(__dirname + '/../pug/index.pug', directoryContents);\r\n            }\r\n            else if (ctx.accepts('json')) {\r\n                ctx.body = directoryContents;\r\n            }\r\n        }\r\n        else {\r\n            await next();\r\n        }\r\n    };\r\n}\r\n\n/* WEBPACK VAR INJECTION */}.call(this, \"src\\\\middlewares\"))\n\n//# sourceURL=webpack:///./src/middlewares/indexer.ts?");
+
+/***/ }),
+
+/***/ "./src/server.ts":
+/*!***********************!*\
+  !*** ./src/server.ts ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Server; });\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! koa */ \"koa\");\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(koa__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var deep_extend__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! deep-extend */ \"deep-extend\");\n/* harmony import */ var deep_extend__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(deep_extend__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var http2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! http2 */ \"http2\");\n/* harmony import */ var http2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(http2__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _middlewares__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./middlewares */ \"./src/middlewares.ts\");\n/* harmony import */ var _defaults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./defaults */ \"./src/defaults.ts\");\n\r\n\r\n\r\n\r\n\r\nclass Server {\r\n    constructor(options = {}) {\r\n        deep_extend__WEBPACK_IMPORTED_MODULE_1___default()(options, _defaults__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\r\n        this.server = new koa__WEBPACK_IMPORTED_MODULE_0___default.a();\r\n        _middlewares__WEBPACK_IMPORTED_MODULE_3__[\"default\"].forEach(m => this.server.use(m));\r\n        http2__WEBPACK_IMPORTED_MODULE_2___default.a.createSecureServer(options, this.server.callback()).listen(options.port);\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack:///./src/server.ts?");
+
+/***/ }),
+
+/***/ "@koa/cors":
+/*!****************************!*\
+  !*** external "@koa/cors" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"@koa/cors\");\n\n//# sourceURL=webpack:///external_%22@koa/cors%22?");
+
+/***/ }),
+
+/***/ "deep-extend":
+/*!******************************!*\
+  !*** external "deep-extend" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"deep-extend\");\n\n//# sourceURL=webpack:///external_%22deep-extend%22?");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"fs\");\n\n//# sourceURL=webpack:///external_%22fs%22?");
+
+/***/ }),
+
+/***/ "http2":
+/*!************************!*\
+  !*** external "http2" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"http2\");\n\n//# sourceURL=webpack:///external_%22http2%22?");
+
+/***/ }),
+
+/***/ "koa":
+/*!**********************!*\
+  !*** external "koa" ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"koa\");\n\n//# sourceURL=webpack:///external_%22koa%22?");
+
+/***/ }),
+
+/***/ "koa-conditional-get":
+/*!**************************************!*\
+  !*** external "koa-conditional-get" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"koa-conditional-get\");\n\n//# sourceURL=webpack:///external_%22koa-conditional-get%22?");
+
+/***/ }),
+
+/***/ "koa-etag":
+/*!***************************!*\
+  !*** external "koa-etag" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"koa-etag\");\n\n//# sourceURL=webpack:///external_%22koa-etag%22?");
+
+/***/ }),
+
+/***/ "koa-morgan":
+/*!*****************************!*\
+  !*** external "koa-morgan" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"koa-morgan\");\n\n//# sourceURL=webpack:///external_%22koa-morgan%22?");
+
+/***/ }),
+
+/***/ "koa-static-server":
+/*!************************************!*\
+  !*** external "koa-static-server" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"koa-static-server\");\n\n//# sourceURL=webpack:///external_%22koa-static-server%22?");
+
+/***/ }),
+
+/***/ "kompression":
+/*!******************************!*\
+  !*** external "kompression" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"kompression\");\n\n//# sourceURL=webpack:///external_%22kompression%22?");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%22path%22?");
+
+/***/ }),
+
+/***/ "pug":
+/*!**********************!*\
+  !*** external "pug" ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"pug\");\n\n//# sourceURL=webpack:///external_%22pug%22?");
+
+/***/ })
+
+/******/ });

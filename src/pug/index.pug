@@ -1,0 +1,44 @@
+mixin fileLink(url, file)
+  li
+    a(href= url+ encodeURI(file.name) + (file.isDir? '/':''))
+      if file.isDir
+        div
+          svg
+            use(xlink:href='#d')
+          div= file.name
+        div
+          div= file.modified
+      else
+        div
+          svg(style='color:hsl('+file.hue+', 100%, 30%)')
+            use(xlink:href='#f')
+          div= file.name
+        div
+          div= file.modified
+          div= file.size
+
+doctype html
+meta(name='viewport' content='width=device-width,initial-scale=1')
+link(rel='icon' href='data:;base64,iVBORw0KGgo=')
+title= 'Index of '+  decodeURI(url)
+style
+  include:clean-css(level=2) index.css
+svg(style='display:none')
+  symbol(id='d' viewbox='0 0 928.6 1000')
+    path(d='M929 339v393q0 51-37 88t-88 37H125q-51 0-88-37T0 732V196q0-51 37-88t88-37h179q51 0 88 37t37 88v18h375q51 0 88 37t37 88z')
+  symbol(id='f' viewbox='0 0 857.1 1000')
+    path(d='M571 286V22q13 8 21 16l227 228q8 7 16 20H571zm-71 18q0 22 16 37t38 16h303v589q0 23-15 38t-38 16H54q-23 0-38-16T0 946V54q0-23 16-38T54 0h446v304z')
+#c
+  - var hurl = '/'
+  h1
+    a.h(href='/') ../
+    each part in (url.split('/').filter(a=>a.trim()))
+      - hurl+= part + '/'
+      a.h(href=hurl)=decodeURI(part) + '/'
+      
+  ul
+    +fileLink(url, {name: '..', isDir: true })
+    each file in files
+      +fileLink(url, file)
+script
+  include:uglify-es() index.js
